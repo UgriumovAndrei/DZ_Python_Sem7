@@ -6,11 +6,10 @@
 #   В ответе напишите “Парам пам-пам”, если с ритмом все в порядке и “Пам парам”, если с ритмом все не в порядке.
 # Ввод: пара-ра-рам рам-пам-папам па-ра-па-да
 # Вывод: Парам пам-пам
+#lambda i: sum(1 for j in i if j in 'яаеёоиюэыу')
 def slogi(slovo):
     return sum(1 for char in slovo if char in 'аеёиоуыэюя')
-k = input('кричалка: ').lower().split()
-summa = slogi(k[0])
-if all([slogi(i) == summa for i in k]):
+if len(set([slogi(i) for i in input('кричалка: ').lower().split()])) == 1:  
     print('Парам пам-пам')
 else:
     print('Пам парам')
